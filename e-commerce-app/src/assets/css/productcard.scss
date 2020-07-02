@@ -1,0 +1,96 @@
+
+.product-card{
+    display: flex;
+    flex-direction: column;
+    .card-image{
+        flex: 2;
+        object-fit: cover;
+        width: 100%;
+        border-radius: 4px 4px 0px 0px;      
+        &:hover{
+            transform: scale(1.01);
+        }
+    }
+    .product-details{
+        background-color: white;
+        border-radius: 0px 0px 4px 4px;
+        padding: 4px;
+        .product-name{
+            font-weight: bold;
+        }
+        .product-offer{
+            color : green;
+        }
+    }
+}
+
+
+.product-list{
+    background-color: white;
+    box-shadow: rgb(233, 233, 233) 2px 4px 6px;
+    // display: block;
+    margin: 30px;
+
+    .product-list-header{
+        padding: 20px;
+        margin-bottom: 20px;
+        border: black 1px 1px 1px 1px;
+        display: flex;
+        justify-content: space-between;
+        button{
+            width: 100px;
+            box-shadow: rgb(202, 202, 202) 1px 1px 2px;
+        }
+        
+    }
+    .product-list-body{
+        display: grid;
+        grid-gap: 20px;
+        grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+        padding: 0px 1% 20px 1%;
+    }
+    
+}
+
+
+.banner-list{
+    display: grid;
+    margin: 0px 2% 0px 2%;
+    grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+    column-gap: 10px;
+    justify-items: center;
+    img{
+        margin: 10px;
+        max-height: 350px;
+        width: 100%;
+        object-fit: cover;
+    }
+    
+}
+
+@media only screen and (max-width: 1366px) {
+    .product-list{
+        margin: 2px;
+        .product-list-body{
+            grid-template-columns: repeat(3, minmax(10rem, 1fr));
+        }
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    .banner-list{
+        display: grid;
+        margin: 0px 2% 0px 2%;
+        grid-template-columns: repeat(1, minmax(14rem, 1fr));
+    }
+}
+
+
+@media only screen and (max-width: 768px) {
+    .product-list{
+        .product-list-body{
+            grid-template-columns: repeat(2, minmax(10rem, 1fr));
+        }
+    }
+
+}
