@@ -9,7 +9,7 @@ const Cart = () => {
         <ProductCardE />
         <ProductCardE />
         <div className="cart-checkout">
-            <h4>Products:3</h4>
+            <h4>Products : 3</h4>
             <span>
                 <strong>Total : Rs 1897</strong>
                 <button>Buy Now</button>

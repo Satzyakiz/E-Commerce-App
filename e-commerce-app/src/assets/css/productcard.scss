@@ -53,7 +53,20 @@
     flex-direction: row;
     padding: 5px;
     margin: 5px;
+    margin: 10px auto;
+    width: 80%;
+    position: relative;
+    box-shadow: rgb(218, 218, 218) 1px 1px 6px;
+    &:hover{
+        transform: none;
+    }
+    i{
+        position: absolute;
+        font-size: 1.5em;
+        color: lightgrey;
+        right: 10px;
 
+    }
     .product-details{
         flex: 2;
         display: flex;
@@ -62,10 +75,6 @@
             display: flex;
             flex-direction: column;
             text-align: left;
-            ul{
-                list-style: circle;
-                margin-top: 10px;
-            }
         }
         .product-action{
             display: flex;
@@ -118,23 +127,6 @@
     grid-template-columns: repeat(auto-fit, minmax(19rem, 1fr));
 }
 
-
-.banner-list{
-    display: grid;
-    margin: 0px 2% 0px 2%;
-    grid-template-columns: repeat(auto-fit, minmax(19rem, 1fr));
-    column-gap: 10px;
-    justify-items: center;
-    img{
-        margin: 10px;
-        max-height: 350px;
-        width: 100%;
-        object-fit: cover;
-    }
-    
-}
-
-
 .cart{
     margin: 30px auto;
     background-color: rgba(255, 255, 255, 0.726);
@@ -142,22 +134,7 @@
     padding: 5px;
     padding-bottom: 40px;
     box-shadow: rgb(202, 202, 202) 1px 1px 6px;
-    .product-card-extended{
-        margin: 10px auto;
-        width: 80%;
-        position: relative;
-        box-shadow: rgb(218, 218, 218) 1px 1px 6px;
-        i{
-            position: absolute;
-            font-size: 1.5em;
-            color: lightgrey;
-            right: 10px;
 
-        }
-        &:hover{
-            transform: none;
-        }
-    }
     .cart-checkout{
         margin-top: 30px;
         display: flex;
@@ -180,17 +157,6 @@
 
 }
 
-
-
-
-
-
-
-
-
-
-
-
 @media only screen and (max-width: 1600px) {
     .view{
         margin: 2px;
@@ -198,16 +164,11 @@
 }
 
 @media only screen and (max-width: 1000px) {
-    .banner-list{
-        display: grid;
-        margin: 0px 2% 0px 2%;
-        grid-template-columns: repeat(1, minmax(14rem, 1fr));
-    }
-
     .cart{
-        .product-card-extended{
-            width: 95%;
-        }
+        margin-top: 0px;
+    }
+    .product-card-extended{
+        width: 95%;
     }
 }
 

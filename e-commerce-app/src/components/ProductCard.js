@@ -34,12 +34,12 @@ export const ProductCardL = () => {
     </div>);
 }
 
-export const ProductCardE = () => {
+export const ProductCardE = (props) => {
     return(<div>
         <div className="product-card product-card-extended">
         <img src={placeholder} className="card-image" alt="product"/>
         <div className="product-details">
-        <i class="fa fa-times" aria-hidden="true"></i>
+        {props.removable ? <i className="fa fa-times" aria-hidden="true"></i> : null}
             <div className="product-features">
                 <p className="product-name">Sports Toys, Boxers</p>
                 <sub>This is a awesome product</sub>
@@ -57,7 +57,6 @@ export const ProductCardE = () => {
                     <Rating rating='3.2'/>
                 </div>
                 <div><strong>Rs 999</strong> &nbsp; <del>Rs 789</del></div>
-                
             </div>
 
         </div>
