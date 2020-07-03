@@ -13,22 +13,69 @@ export const ProductCard = () => {
     </div>);
 }
 
-export const ProductListView = () => {
-    return (<div className="product-list">
-                <div className="product-list-header">
-                    <div>
-                        <h2 className="product-list-title">Deals of the Day</h2>
-                        <h5>The subtitle</h5>
-                    </div>
-                    <button>View More</button>
+
+
+export const ProductCardL = () => {
+    return(<div>
+        <div className="product-card product-card-large">
+        <div className="card-image">
+        <img src={placeholder} alt="product"/>
+        <i class="fa fa-heart" color="white"></i>
+        </div>
+        <div className="product-details">
+            <div>
+                <p className="product-name">Sports Toys, Boxers</p>
+                <sub>This is a awesome product</sub>
+            </div>
+            <Rating rating='3.2'/>
+            <strong>Rs 999</strong> &nbsp; <del>Rs 789</del>
+        </div>
+    </div>
+    </div>);
+}
+
+export const ProductCardE = () => {
+    return(<div>
+        <div className="product-card product-card-extended">
+        <img src={placeholder} className="card-image" alt="product"/>
+        <div className="product-details">
+        <i class="fa fa-times" aria-hidden="true"></i>
+            <div className="product-features">
+                <p className="product-name">Sports Toys, Boxers</p>
+                <sub>This is a awesome product</sub>
+                <ul style={{listStyle : 'dots'}}>
+                    <li><h5>Very good product</h5></li>
+                    <li><h5>Very good product</h5></li>
+                    <li><h5>Very good product</h5></li>
+                    <li><h5>Very good product</h5></li>
+                    <li><h5>Very good product</h5></li>
+                    <li><h5>Very good product</h5></li>
+                </ul>
+            </div>
+            <div className='product-action'>
+                <div>
+                    <Rating rating='3.2'/>
                 </div>
-                <div className="product-list-body">
-                    <ProductCard />
-                    <ProductCard />
-                    <ProductCard />
-                    <ProductCard />
-                    <ProductCard />
-                    <ProductCard />
-                </div>
-            </div>);
+                <div><strong>Rs 999</strong> &nbsp; <del>Rs 789</del></div>
+                
+            </div>
+
+        </div>
+    </div>
+    </div>);
+
+}
+
+
+export const Rating = (props) => {
+    let rating = "";
+    for(let i = 1; i <= 5; i++){
+        if(i <= Math.round(props.rating % 5)) rating += '★';
+        else rating += '☆';
+    }
+    return(
+    <div className="rating">
+        {rating}
+    </div>
+    );
 }

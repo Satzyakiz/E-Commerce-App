@@ -4,7 +4,7 @@ export const Navbar = () => {
     return(
     <div className="navbar">
         <div className="navbar-brand">
-            <h1 className="heading">Flipkart</h1>
+            <h1 className="heading">FlipMarket</h1>
             <form className='search-bar'>
                 <input type="text" placeholder="Search.."/>
                 <button type="submit"><i class="fa fa-search"></i></button>

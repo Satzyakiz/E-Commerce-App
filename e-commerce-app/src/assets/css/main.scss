@@ -73,6 +73,11 @@ button{
     }
 }
 
+.rating{
+    color: gold;
+    fill: chartreuse;
+}
+
 .dropbtn {
     padding: 10px;
     font-size: 16px;
@@ -120,7 +125,18 @@ button{
   }
   
   .Home{
-      margin: 0px 100px 0px 100px;
+      margin: 20px 100px 30px 100px;
+        display: flex;
+        .filter-column{
+            box-shadow: rgb(233, 233, 233) 2px 4px 6px;
+            background-color: white;
+            width: 300px;
+            padding: 15px;
+            margin-right: 20px;
+        }
+        .home-content{
+            flex: 2;
+        }
   }
 
   .Footer{
@@ -133,10 +149,21 @@ button{
   @media only screen and (max-width: 1280px) {
     .Home{
         margin: 0px 2px 0px 2px;
+        .filter-column{
+            display: none;
+        }
     }
 }
-  @import './navbar.scss';
-  @import './productcard.scss';
+
+
+
+
+
+
+
+
+@import './navbar.scss';
+@import './productcard.scss';
 
 
 

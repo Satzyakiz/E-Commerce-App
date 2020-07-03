@@ -1,20 +1,33 @@
 import React from 'react';
 
 //Components
-import { ProductListView } from '../components/ProductCard';
+import { ProductListView } from '../components/ProductView';
+import { ProductCard, ProductCardL } from '../components/ProductCard';
 
-import { Banner } from '../components/Banner';
 import { CategoryNav } from '../components/Navbar';
+import FilterColumn from '../components/FilterColumn';
 
 const Home = () => {
+    const products = [
+        <ProductCardL />,
+        <ProductCardL />,
+        <ProductCardL />,
+        <ProductCardL />,
+        <ProductCardL />,
+        <ProductCardL />,
+        <ProductCardL />
+    ]
+
     return(
     <div>
         <CategoryNav />
         <div className="Home">
-            <ProductListView />
-            <Banner />
-            <ProductListView />
-            <ProductListView />
+            <FilterColumn />
+            <div className="home-content">
+                <ProductListView title="Clocks" large={true}>
+                    {products}
+                </ProductListView>
+            </div>
         </div>
     </div>);
 }
