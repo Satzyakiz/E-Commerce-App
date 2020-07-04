@@ -16,7 +16,6 @@
         text-align: center;
         .product-name{
             font-weight: bold;
-            font-size: 18px;
         }
         .product-offer{
             color : green;
@@ -28,6 +27,7 @@
 }
 
 .product-card-large{
+    position: relative;
     .product-details{
         text-align: left;
     }
@@ -122,9 +122,10 @@
 }
 
 .productl-list{
+    margin: 0px 20px 0px 20px;
     display: grid;
     gap: 10px;
-    grid-template-columns: repeat(auto-fit, minmax(19rem, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(11rem, .5fr));
 }
 
 .cart{

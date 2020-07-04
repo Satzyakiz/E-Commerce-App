@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import placeholder from '../assets/images/placeholder.png';
 
 export const ProductCard = () => {
@@ -15,33 +15,40 @@ export const ProductCard = () => {
 
 
 
-export const ProductCardL = () => {
-    return(<div>
-        <div className="product-card product-card-large">
+export const ProductCardL = (props) => {
+    const [overlay, changeOverlay ] = useState('none');
+    const overlayHandler = (s) => changeOverlay(s);
+    const product = props.product;
+    return(
+        <div className="product-card product-card-large" onClick={() => overlayHandler('flex')} onMouseLeave={() => overlayHandler('none')}>
+        <div className="overlay" style={{display : overlay}}>
+            <button onClick={() => props.addCart(product)}>Add Cart</button>
+        </div>
         <div className="card-image">
         <img src={placeholder} alt="product"/>
-        <i class="fa fa-heart" color="white"></i>
+        <i className="fa fa-heart" color="white"></i>
         </div>
         <div className="product-details">
             <div>
-                <p className="product-name">Sports Toys, Boxers</p>
+    <h4 className="product-name">{product.product_name}</h4>
                 <sub>This is a awesome product</sub>
             </div>
-            <Rating rating='3.2'/>
-            <strong>Rs 999</strong> &nbsp; <del>Rs 789</del>
+            <Rating rating={product.rating}/>
+    <strong>$ {product.price}</strong> <del>$ {product.price + 2}</del>
         </div>
-    </div>
     </div>);
 }
 
 export const ProductCardE = (props) => {
+    const product = props.data;
+
     return(<div>
         <div className="product-card product-card-extended">
         <img src={placeholder} className="card-image" alt="product"/>
         <div className="product-details">
         {props.removable ? <i className="fa fa-times" aria-hidden="true"></i> : null}
             <div className="product-features">
-                <p className="product-name">Sports Toys, Boxers</p>
+                <p className="product-name">{product.product_name}</p>
                 <sub>This is a awesome product</sub>
                 <ul style={{listStyle : 'dots'}}>
                     <li><h5>Very good product</h5></li>
@@ -53,10 +60,22 @@ export const ProductCardE = (props) => {
                 </ul>
             </div>
             <div className='product-action'>
+                <select size='1' value={product.quantity} onChange={(event) => props.quantityChangeHandler(product.product_id, parseInt(event.currentTarget.value))} >
+                    <option value='1'>1</option>
+                    <option value='2'>2</option>
+                    <option value='3'>3</option>
+                    <option value='4'>4</option>
+                    <option value='5'>5</option>
+                    <option value='6'>6</option>
+                    <option value='7'>7</option>
+                    <option value='8'>8</option>
+                    <option value='9'>9</option>
+                    <option value='10'>10</option>
+                </select>
                 <div>
-                    <Rating rating='3.2'/>
+                    <Rating rating={product.rating}/>
                 </div>
-                <div><strong>Rs 999</strong> &nbsp; <del>Rs 789</del></div>
+                <div><strong>${product.price.toFixed(2)}</strong> &nbsp; <del>${product.price + 2}</del></div>
             </div>
 
         </div>

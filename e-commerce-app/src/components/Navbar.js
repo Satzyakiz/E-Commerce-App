@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 export const Navbar = () => {
     const [ sidebar, toggleSidebar ] = useState('none');
@@ -7,7 +8,7 @@ export const Navbar = () => {
     <div className="navbar">
         <i className="fa fa-bars nav-toggle" aria-hidden="true" onClick={toogleHandler}></i>
         <div className="navbar-brand">
-        <h1 className="heading">FlipMarket</h1>
+        <Link to='/'><h1 className="heading">FlipMarket</h1></Link>
             <form className='search-bar'>
                 <input type="text" placeholder="Search.."/>
                 <button type="submit"><i className="fa fa-search"></i></button>
@@ -18,7 +19,7 @@ export const Navbar = () => {
         </div>
         <div className="navbar-links">
             <button>Login</button>
-            <span className='cart-button'><a href='/'><i className="fa fa-shopping-cart" aria-hidden="true"></i>Cart</a></span>
+            <Link to='/cart'><span className='cart-button'><i className="fa fa-shopping-cart" aria-hidden="true"></i>Cart</span></Link>
 
         </div>
     </div>);

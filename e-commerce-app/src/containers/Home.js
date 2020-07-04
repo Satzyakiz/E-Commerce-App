@@ -1,22 +1,23 @@
 import React from 'react';
+import { useSelector, useDispatch } from "react-redux";
+
+//Actions
+import { addCart } from '../actions/cartActions';
 
 //Components
 import { ProductListView } from '../components/ProductView';
-import { ProductCard, ProductCardL } from '../components/ProductCard';
+import { ProductCardL } from '../components/ProductCard';
 
 import { CategoryNav } from '../components/Navbar';
 import FilterColumn from '../components/FilterColumn';
 
+
 const Home = () => {
-    const products = [
-        <ProductCardL />,
-        <ProductCardL />,
-        <ProductCardL />,
-        <ProductCardL />,
-        <ProductCardL />,
-        <ProductCardL />,
-        <ProductCardL />
-    ]
+    const products = useSelector(state => state.products.products);
+    const dispatch = useDispatch();
+
+    const addToCartHandler = (product) => dispatch(addCart(product));
+    const productComps = products.map((product) => <ProductCardL key={product.product_id} product={product} addCart={addToCartHandler}/>);
 
     return(
     <div>
@@ -25,7 +26,7 @@ const Home = () => {
             <FilterColumn />
             <div className="home-content">
                 <ProductListView title="Clocks" large={true}>
-                    {products}
+                    { productComps }
                 </ProductListView>
             </div>
         </div>
