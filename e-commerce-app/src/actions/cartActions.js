@@ -15,3 +15,11 @@ export const addQuantity = (product_id, quantity) => {
         quantity : quantity
     }
 }
+
+
+export const removeProduct = (product) => {
+    return {
+        type : 'REMOVE_FROM_CART',
+        product : product,
+    }
+}

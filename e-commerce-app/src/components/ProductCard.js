@@ -46,7 +46,7 @@ export const ProductCardE = (props) => {
         <div className="product-card product-card-extended">
         <img src={placeholder} className="card-image" alt="product"/>
         <div className="product-details">
-        {props.removable ? <i className="fa fa-times" aria-hidden="true"></i> : null}
+        {props.removable ? <i className="fa fa-times" aria-hidden="true" onClick={() => props.removeHandler(product)}></i> : null}
             <div className="product-features">
                 <p className="product-name">{product.product_name}</p>
                 <sub>This is a awesome product</sub>

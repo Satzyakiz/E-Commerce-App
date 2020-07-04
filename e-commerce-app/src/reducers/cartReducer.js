@@ -38,13 +38,21 @@ const addQuantity = (state, action) => {
 
     return newState;
 }
-    
+
+const removeFromCart = (state, action) => {
+    const newState = state;
+    newState.product_count -= action.product.quantity;
+    newState.total -= (action.product.price * action.product.quantity); 
+    newState.products = newState.products.filter((product, index, arr) => product.product_id !== action.product.product_id);
+    return newState; 
+}
 
 
 const cartReducer = (state = initState, action) => {
     switch(action.type){
         case "ADD_TO_CART": return addToCart(state, action);
         case "ADD_QUANTITY": return addQuantity(state, action); 
+        case "REMOVE_FROM_CART": return removeFromCart(state, action); 
         default:
             return state;
     }
